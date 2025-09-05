@@ -1,0 +1,11 @@
+# Виртуальное окружение
+djangovenv/
+
+# IDE PyCharm
+.idea/
+
+# Python cache
+__pycache__/
+
+# База данных SQLite
+*.sqlite3

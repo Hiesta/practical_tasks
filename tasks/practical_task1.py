@@ -6,6 +6,8 @@ connect(
 )
 
 employee_fields = ['name', 'surname', 'age', 'salary', 'job']
+
+
 class Employee(Document):
     name = StringField(required=True, default='TBA')
     surname = StringField(required=True, default='TBA')
@@ -21,7 +23,7 @@ def new_employee_data():
     return new_employee
 
 
-def filter(data):
+def filter_func(data):
     if data == '0':
         get_data_from_db()
     elif data == '1':
@@ -91,7 +93,7 @@ if __name__ == '__main__':
                          "0 - если хотите вывести всех сотрудников без фильтра\n"
                          "1 - вывести в возрастании или убывании зарплаты или возраста\n"
                          "2 - найти по данным\n")
-            filter(fltr)
+            filter_func(fltr)
         user_input = input('Выберите действие:\n'
                            '1 - добавить данные о сотруднике\n'
                            '2 - получить данные о сотрудниках\n'
