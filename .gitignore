@@ -1,5 +1,7 @@
 # Виртуальное окружение
 djangovenv/
+tasks/practical_task2_django/news_venv/
+**/venv/
 
 # IDE PyCharm
 .idea/
