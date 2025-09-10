@@ -1,15 +1,26 @@
 from django.db import models
 from django.core.validators import MinValueValidator
+from django.urls import reverse
 from datetime import datetime
 from .resources import POSITIONS
 
 
 class Staff(models.Model):
     full_name = models.CharField(max_length=255)
+    age = models.IntegerField(default=18)
     position = models.CharField(max_length=2,
                                 choices=POSITIONS,
                                 default='UR')
     labor_contract = models.IntegerField()
+    salary = models.IntegerField(default=0,
+                                 blank=True)
+
+    def get_absolute_url(self):
+        return reverse('employee', args=[str(self.id)])
+
+    # Если вернуться на страницу всех сотрудников:
+    # def get_absolute_url(self):
+    #   return reverse_lazy('full_list')
 
     def get_last_name(self):
         data = self.full_name.split()
